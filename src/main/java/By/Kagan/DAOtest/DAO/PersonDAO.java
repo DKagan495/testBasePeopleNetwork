@@ -46,4 +46,11 @@ public class PersonDAO {
         else
             return false;
     }
+    public void edit(int id, Person editedperson)
+    {
+        Person personToEdit = show(id);
+        personToEdit.setName(editedperson.getName());
+        personToEdit.setSurname(editedperson.getSurname());
+        personToEdit.setPatronymic(editedperson.getPatronymic());
+    }
 }
