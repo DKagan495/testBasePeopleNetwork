@@ -1,12 +1,11 @@
 package By.Kagan.DAOtest.Controllers;
 
 import By.Kagan.DAOtest.DAO.PersonDAO;
+import By.Kagan.DAOtest.Models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/people")
@@ -29,5 +28,35 @@ public class PeopleController {
     {
         model.addAttribute("person", personDAO.show(id));
         return "concperson";
+    }
+    @GetMapping("/registration")
+    public String newPerson(Model model)
+    {
+        model.addAttribute("person", new Person());
+        return "RegistrastionForm";
+    }
+   /* @PostMapping()
+    public String create(@ModelAttribute("person") Person person)
+    {
+        personDAO.toList(person);
+        return "redirect:/people";
+    }*/
+    @GetMapping("/login")
+    public String login(Model model)
+    {
+        model.addAttribute("person", new Person());
+        return "loginform";
+    }
+    @PostMapping()
+    public String tologin(@ModelAttribute("person") Person person)
+    {
+        if(!personDAO.log(person))
+        {
+            return "redirect:/failedform";
+        }
+        else
+        {
+            return "redirect:/people";
+        }
     }
 }

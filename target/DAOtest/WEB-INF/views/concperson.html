@@ -2,12 +2,10 @@
 <html lang="en" xmlns:th = "http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Human</title>
+    <title th:text = "${person.getName()} + ' ' + ${person.getPatronymic()}">Human</title>
 </head>
 <body>
-<p th:text = "${person.getName()}">VALUE</p>
-<p th:text = "${person.getPatronymic()}">VALUE</p>
-<p th:text = "${person.getSurname()}">VALUE</p>
+<h2 th:text = "${person.getName()} + ' ' + ${person.getPatronymic()} + ' ' + ${person.getSurname()}">VALUE</h2>
 <p th:text = "${person.getId()}">VALUE</p>
 </body>
 </html>

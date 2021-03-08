@@ -7,14 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 @Component
 public class PersonDAO {
+    static int IDENTIFIER = 0;
     private List<Person> peopleList;
     {
         peopleList = new ArrayList<>();
-        peopleList.add(new Person(1, "Daniel", "Kagan", "Alexandrovi4"));
-        peopleList.add(new Person(2, "Vladislav", "Zakrevski", "Vitaljevich"));
-        peopleList.add(new Person(3, "Vladislav", "Korsak", "Unknown patronymic"));
-        peopleList.add(new Person(4, "Alexander", "Kuzneatsov", "Aliexeyevich"));
-        peopleList.add(new Person(5, "Roman", "Zhuravski", "Viktorovich"));
+        peopleList.add(new Person(++IDENTIFIER, "Daniel", "Kagan", "Alexandrovi4"));
+        peopleList.add(new Person(++IDENTIFIER, "Vladislav", "Zakrevski", "Vitaljevich"));
+        peopleList.add(new Person(++IDENTIFIER, "Vladislav", "Korsak", "Unknown patronymic"));
+        peopleList.add(new Person(++IDENTIFIER, "Alexander", "Kuzneatsov", "Aliexeyevich"));
+        peopleList.add(new Person(++IDENTIFIER, "Roman", "Zhuravski", "Viktorovich"));
     }
     public List<Person> index()
     {
@@ -23,5 +24,26 @@ public class PersonDAO {
     public Person show(int id)
     {
         return peopleList.stream().filter(Person->Person.getId()==id).findAny().orElse(null);
+    }
+    public void toList(Person person)
+    {
+        person.setId(++IDENTIFIER);
+        peopleList.add(person);
+    }
+    public boolean log(Person person)
+    {
+        int iterator = 0;
+        for(int i = 0; i < IDENTIFIER; i++)
+        {
+           if(peopleList.get(i).getName().equals(person.getName()) && peopleList.get(i).getSurname().equals(person.getSurname()))
+           {
+               iterator++;
+               break;
+           }
+        }
+        if(iterator == 1)
+            return true;
+        else
+            return false;
     }
 }

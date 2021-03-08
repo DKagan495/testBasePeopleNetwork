@@ -4,6 +4,10 @@ public class Person {
     private int id;
     private String Name, Surname, Patronymic;
 
+    public Person()
+    {
+
+    }
     public Person(int id, String name, String surname, String patronymic) {
         this.id = id;
         Name = name;
