@@ -35,24 +35,29 @@ public class PeopleController {
         model.addAttribute("person", new Person());
         return "RegistrastionForm";
     }
-   /* @PostMapping()
+    @PostMapping()
     public String create(@ModelAttribute("person") Person person)
     {
         personDAO.toList(person);
         return "redirect:/people";
-    }*/
+    }
     @GetMapping("/login")
     public String login(Model model)
     {
         model.addAttribute("person", new Person());
         return "loginform";
     }
-    @PostMapping()
+    @GetMapping("/logfail")
+    public String failog()
+    {
+        return "failure";
+    }
+    @PostMapping("/dologin")
     public String tologin(@ModelAttribute("person") Person person)
     {
         if(!personDAO.log(person))
         {
-            return "redirect:/failedform";
+            return "redirect:/people/logfail";
         }
         else
         {

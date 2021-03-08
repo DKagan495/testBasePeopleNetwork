@@ -5,7 +5,7 @@
     <title>Log In</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/people}" th:object="${person}">
+<form th:method="POST" th:action="@{/people/dologin}" th:object="${person}">
     <label for="Name">Name:</label><input type="text" th:field="*{Name}" id = "Name"><br>
     <label for="Surname">Surname:</label><input type="text" th:field="*{Surname}" id = "Surname"><br>
     <input type="submit" value="Login">
