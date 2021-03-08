@@ -53,4 +53,8 @@ public class PersonDAO {
         personToEdit.setSurname(editedperson.getSurname());
         personToEdit.setPatronymic(editedperson.getPatronymic());
     }
+    public void deletePerson(int id)
+    {
+        peopleList.removeIf(person -> person.getId() == id);
+    }
 }

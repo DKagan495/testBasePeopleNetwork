@@ -2,11 +2,14 @@
 <html lang="en" xmlns:th = "http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text = "${person.getName()} + ' ' + ${person.getPatronymic()}">Human</title>
+    <title th:text = "${person.getName()} + ' ' + ${person.getSurname()}">Human</title>
 </head>
 <body>
 <h2 th:text = "${person.getName()} + ' ' + ${person.getPatronymic()} + ' ' + ${person.getSurname()}">VALUE</h2>
 <p th:text = "${person.getId()}">VALUE</p>
 <a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit profile</a>
+<form th:method="DELETE" th:action="@{/people/{id}/(id=${person.getId()})}">
+    <input type="submit" value="Delete">
+</form>
 </body>
 </html>

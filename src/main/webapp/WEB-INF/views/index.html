@@ -5,10 +5,14 @@
     <title>All users</title>
 </head>
 <body>
+<a href="/people/registration">Registration!</a>
+<a href="/people/login">Log In</a>
+<hr>
 <div th:each = "person : ${people}">
     <a th:href="@{/people/{id}(id = ${person.getId()})}" th:text = "${person.getName() + ' ' + person.getSurname()}">user</a>
 </div>
-<a href="/people/registration">Registration!</a>
-<a href="/people/login">Log In</a>
+<div>
+    <img th:src="Autograph.jpg">
+</div>
 </body>
 </html>
