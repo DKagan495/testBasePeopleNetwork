@@ -33,7 +33,7 @@ public class PersonDAO {
     public boolean log(Person person)
     {
         int iterator = 0;
-        for(int i = 0; i < IDENTIFIER; i++)
+        for(int i = 0; i < peopleList.size(); i++)
         {
            if(peopleList.get(i).getName().equals(person.getName()) && peopleList.get(i).getSurname().equals(person.getSurname()))
            {
