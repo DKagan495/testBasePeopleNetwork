@@ -59,15 +59,14 @@ public class PeopleController {
     @PostMapping("/dologin")
     public String tologin(@ModelAttribute("person") Person person)
     {
-   /*     if(!personDAO.log(person))
+        if(!personDAO.log(person))
         {
             return "redirect:/people/logfail";
         }
         else
         {
             return "redirect:/people";
-        }*/
-        return null;
+        }
     }
     @GetMapping("/{id}/edit")
     public String doEdit(Model model, @PathVariable("id") int id)

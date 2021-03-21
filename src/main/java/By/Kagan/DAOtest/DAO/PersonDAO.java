@@ -68,22 +68,37 @@ public class PersonDAO {
         }
 
     }
-   /* public boolean log(Person person)
+    public boolean log(Person person)
     {
         int iterator = 0;
-        for(int i = 0; i < peopleList.size(); i++)
-        {
-           if(peopleList.get(i).getEmail().equals(person.getEmail()) && peopleList.get(i).getPassword().equals(person.getPassword()))
-           {
-               iterator++;
-               break;
-           }
+        try {
+            Statement statement = connection.createStatement();
+            String SQL = "SELECT*FROM Person";
+            ResultSet resultSet = statement.executeQuery(SQL);
+            while (resultSet.next())
+            {
+                Person logpers = new Person();
+                logpers.setId(resultSet.getInt("id"));
+                logpers.setAge(resultSet.getInt("age"));
+                logpers.setName(resultSet.getString("name"));
+                logpers.setSurname(resultSet.getString("surname"));
+                logpers.setPatronymic(resultSet.getString("patronymic"));
+                logpers.setEmail(resultSet.getString("email"));
+                logpers.setPassword(resultSet.getString("password"));
+                if(logpers.getEmail().equals(person.getEmail()) && logpers.getPassword().equals(person.getPassword()))
+                {
+                    iterator++;
+                    break;
+                }
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         if(iterator == 1)
             return true;
         else
             return false;
-    }*/
+    }
     public void edit(int id, Person editedperson)
     {
      /*   Person personToEdit = show(id);
