@@ -59,7 +59,14 @@ public class PersonDAO {
     public void toList(Person person)
     {
       //  person.setId(++IDENTIFIER);
-       // peopleList.add(person);
+        try {
+            Statement statement = connection.createStatement();
+            String SQL = "INSERT INTO Person VALUES(" + 1 + ",'" + person.getAge() + "','" + person.getName() + "', '" + person.getSurname() + "', '" + person.getPatronymic() + "', '" + person.getEmail() + "', '" + person.getPassword()+"')";
+            statement.executeUpdate(SQL);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
     }
    /* public boolean log(Person person)
     {
