@@ -347,7 +347,7 @@ false Asia/Srednekolymsk
 false Asia/Taipei
 false Asia/Tashkent
 false Asia/Tbilisi
-false Asia/Tehran
+true Asia/Tehran
 false Asia/Tel_Aviv
 false Asia/Thimbu
 false Asia/Thimphu
@@ -598,7 +598,7 @@ false Indian/Maldives
 false Indian/Mauritius
 false Indian/Mayotte
 false Indian/Reunion
-false Iran
+true Iran
 false Israel
 false JAYT
 false JST
@@ -799,7 +799,7 @@ false Zulu
       <ObjectId>13442</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>592101</IntrospectionStateNumber>
+      <IntrospectionStateNumber>610481</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <role id="5" parent="1" name="agent1">
@@ -1084,7 +1084,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>592102</IntrospectionStateNumber>
+      <IntrospectionStateNumber>610482</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <table id="63" parent="47" name="person">
@@ -1092,93 +1092,46 @@ UC/10
       <Owner>postgres</Owner>
       <StateNumber>587096</StateNumber>
     </table>
-    <table id="64" parent="62" name="person">
-      <ObjectId>55048</ObjectId>
-      <Owner>postgres</Owner>
-      <StateNumber>586358</StateNumber>
-    </table>
-    <column id="65" parent="63" name="id">
+    <column id="64" parent="63" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>587096</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="66" parent="63" name="age">
+    <column id="65" parent="63" name="age">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>587096</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="67" parent="63" name="name">
+    <column id="66" parent="63" name="name">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>587096</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="68" parent="63" name="surname">
+    <column id="67" parent="63" name="surname">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>587096</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="69" parent="63" name="patronymic">
+    <column id="68" parent="63" name="patronymic">
       <Position>5</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>587096</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="70" parent="63" name="email">
+    <column id="69" parent="63" name="email">
       <Position>6</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>587096</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="71" parent="63" name="password">
+    <column id="70" parent="63" name="password">
       <Position>7</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>587096</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="72" parent="64" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>586358</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="73" parent="64" name="age">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>586358</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="74" parent="64" name="name">
-      <Position>3</Position>
-      <DataType>varchar|0s</DataType>
-      <StateNumber>586358</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="75" parent="64" name="surname">
-      <Position>4</Position>
-      <DataType>varchar|0s</DataType>
-      <StateNumber>586358</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="76" parent="64" name="patronymic">
-      <Position>5</Position>
-      <DataType>varchar|0s</DataType>
-      <StateNumber>586358</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="77" parent="64" name="email">
-      <Position>6</Position>
-      <DataType>varchar|0s</DataType>
-      <StateNumber>586358</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="78" parent="64" name="password">
-      <Position>7</Position>
-      <DataType>varchar|0s</DataType>
-      <StateNumber>586358</StateNumber>
       <TypeId>1043</TypeId>
     </column>
   </database-model>
