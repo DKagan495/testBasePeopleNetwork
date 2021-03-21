@@ -6,9 +6,22 @@
 </head>
 <body>
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
-    <label for="Name">Name:</label><input type="text" th:field="*{Name}" id = "Name"><br>
-    <label for="Surname">Surname:</label><input type="text" th:field="*{Surname}" id = "Surname"><br>
-    <label for="Patronymic">Patronymic</label><input type="text" th:field="*{Patronymic}" id = "Patronymic"><br>
+    <label for="Name">Name:</label><input type="text" th:field="*{Name}" id = "Name">
+    <div th:if="${#fields.hasErrors('Name')}" th:errors="*{Name}">Name error</div>
+    <br/>
+    <label for="Surname">Surname:</label><input type="text" th:field="*{Surname}" id = "Surname">
+    <div th:if="${#fields.hasErrors('Surname')}" th:errors="*{Surname}">Surname error</div>
+    <br/>
+    <label for="Patronymic">Patronymic</label><input type="text" th:field="*{Patronymic}" id = "Patronymic">
+    <div th:if="${#fields.hasErrors('Patronymic')}" th:errors="*{Patronymic}">Patronymic error</div>
+    <br/>
+    <label for="email">email:</label><input type="text" th:field="*{email}" id = "email">
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</div>
+    <br/>
+    <label for="age">Age:</label><input type="text" th:field="*{age}" id = "age">
+    <label for="password">Password:</label><input type="password" th:field="*{password}" id="password">
+    <div th:if="${#fields.hasErrors('Password')}" th:errors="*{Password}">Password error</div>
+    <br/>
     <input type="submit" value="Create account">
 </form>
 </body>

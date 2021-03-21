@@ -6,6 +6,8 @@
 </head>
 <body>
 <h2 th:text = "${person.getName()} + ' ' + ${person.getPatronymic()} + ' ' + ${person.getSurname()}">VALUE</h2>
+<h2 th:text = "'email: ' + ${person.getEmail}">VALUE</h2>
+<h2 th:text = "${person.getAge()} + ' years old'">VALUE</h2>
 <p th:text = "${person.getId()}">VALUE</p>
 <a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit profile</a>
 <form th:method="DELETE" th:action="@{/people/{id}/(id=${person.getId()})}">

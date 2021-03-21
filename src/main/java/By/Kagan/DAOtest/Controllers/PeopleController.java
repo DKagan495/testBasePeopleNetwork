@@ -2,9 +2,12 @@ package By.Kagan.DAOtest.Controllers;
 
 import By.Kagan.DAOtest.DAO.PersonDAO;
 import By.Kagan.DAOtest.Models.Person;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -15,7 +18,6 @@ public class PeopleController {
     public PeopleController(PersonDAO personDAO) {
         this.personDAO = personDAO;
     }
-
     @GetMapping()
     public String index(Model model)
     {
@@ -36,10 +38,12 @@ public class PeopleController {
         return "RegistrastionForm";
     }
     @PostMapping()
-    public String create(@ModelAttribute("person") Person person)
+    public String create(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult)
     {
-        personDAO.toList(person);
-        return "redirect:/people";
+        if(bindingResult.hasErrors())
+            return "RegistrastionForm";
+            personDAO.toList(person);
+            return "redirect:/people";
     }
     @GetMapping("/login")
     public String login(Model model)
@@ -71,8 +75,10 @@ public class PeopleController {
         return "editprofileform";
     }
     @PatchMapping("/{id}")
-    public String edit(@ModelAttribute("person") Person person, @PathVariable("id") int id)
+    public String edit(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id)
     {
+        if (bindingResult.hasErrors())
+            return "editprofileform";
         personDAO.edit(id, person);
         return "redirect:/people";
     }

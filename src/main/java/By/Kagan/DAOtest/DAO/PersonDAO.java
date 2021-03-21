@@ -11,11 +11,7 @@ public class PersonDAO {
     private List<Person> peopleList;
     {
         peopleList = new ArrayList<>();
-        peopleList.add(new Person(++IDENTIFIER, "Daniel", "Kagan", "Alexandrovi4"));
-        peopleList.add(new Person(++IDENTIFIER, "Vladislav", "Zakrevski", "Vitaljevich"));
-        peopleList.add(new Person(++IDENTIFIER, "Vladislav", "Korsak", "Unknown patronymic"));
-        peopleList.add(new Person(++IDENTIFIER, "Alexander", "Kuzneatsov", "Aliexeyevich"));
-        peopleList.add(new Person(++IDENTIFIER, "Roman", "Zhuravski", "Viktorovich"));
+        peopleList.add(new Person(++IDENTIFIER, "Daniel", "Kagan", "Alexandrovi4", "kahan@mail.ru", "dankeykey", 18));
     }
     public List<Person> index()
     {
@@ -35,7 +31,7 @@ public class PersonDAO {
         int iterator = 0;
         for(int i = 0; i < peopleList.size(); i++)
         {
-           if(peopleList.get(i).getName().equals(person.getName()) && peopleList.get(i).getSurname().equals(person.getSurname()))
+           if(peopleList.get(i).getEmail().equals(person.getEmail()) && peopleList.get(i).getPassword().equals(person.getPassword()))
            {
                iterator++;
                break;
