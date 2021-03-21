@@ -11,8 +11,5 @@
 <div th:each = "person : ${people}">
     <a th:href="@{/people/{id}(id = ${person.getId()})}" th:text = "${person.getName() + ' ' + person.getSurname()}">user</a>
 </div>
-<div>
-    <img height="1442" th:src="@{uLv_ZOdDwuU.jpg}" width="1143"/>
-</div>
 </body>
 </html>
