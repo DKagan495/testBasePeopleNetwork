@@ -1,13 +1,12 @@
 package By.Kagan.DAOtest.Models;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Person {
+    private boolean logBool;
     private int id;
     @Min(value = 0, message = "Age can't be with minus")
+    @Max(value = 120, message = "Ludi stolko ne zhivut!")
     private int age;
     @NotEmpty(message = "Name is empty, we`re can`t create account of inattentive user. Fix your error, please.")
     @Size(min = 2, max = 20, message = "Invalid name. This name is not real!")
@@ -29,11 +28,12 @@ public class Person {
     {
 
     }
-    public Person(int id, String name, String surname, String patronymic, String email, String password, int age) {
+    public Person(int id, String name, String surname, String patronymic, String email, String password, int age, boolean logBool) {
         this.id = id;
         this.email = email;
         this.age = age;
         this.password = password;
+        this.logBool = logBool;
         Name = name;
         Surname = surname;
         Patronymic = patronymic;
@@ -93,5 +93,13 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setLogBool(boolean logBool) {
+        this.logBool = logBool;
+    }
+
+    public boolean isLogBool() {
+        return logBool;
     }
 }

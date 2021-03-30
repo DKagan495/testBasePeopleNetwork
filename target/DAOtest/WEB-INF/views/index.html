@@ -7,6 +7,9 @@
 <body>
 <a href="/people/registration">Registration!</a>
 <a href="/people/login">Log In</a>
+<li th:if="${#person.isPersonLogInSuccessful}">
+    <a href="/people/logout">LogOut</a>
+</li>
 <hr>
 <div th:each = "person : ${people}">
     <a th:href="@{/people/{id}(id = ${person.getId()})}" th:text = "${person.getName() + ' ' + person.getSurname()}">user</a>
